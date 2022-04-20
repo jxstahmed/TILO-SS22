@@ -61,12 +61,14 @@ tochter(X,Y) :- elternteil(Y,X), weiblich(X).
 nichtgleich(X,Y) :-  X \== Y.
 
 % bruder(X,Y): X ist Bruder von Y [aber nicht die selbe Person].
-bruder(X,Y) :- maennlich(X), nichtgleich(X,Y), vater(A,X), vater(A,Y).
-bruder(X,Y) :- maennlich(X), nichtgleich(X,Y), mutter(A,X), mutter(A,Y).
+bruder(X,Y) :- maennlich(X), nichtgleich(X,Y), elternteil(A,X), elternteil(A,Y).
+% bruder(X,Y) :- maennlich(X), nichtgleich(X,Y), vater(A,X), vater(A,Y).
+% bruder(X,Y) :- maennlich(X), nichtgleich(X,Y), mutter(A,X), mutter(A,Y).
 
 % schwester(X,Y): X ist Schwester von Y [aber nicht die selbe Person].
-schwester(X,Y) :- weiblich(X), nichtgleich(X,Y), vater(A,X), vater(A,Y).
-schwester(X,Y) :- weiblich(X), nichtgleich(X,Y), mutter(A,X), mutter(A,Y).
+schwester(X,Y) :- maennlich(X), nichtgleich(X,Y), elternteil(A,X), elternteil(A,Y).
+% schwester(X,Y) :- weiblich(X), nichtgleich(X,Y), vater(A,X), vater(A,Y).
+% schwester(X,Y) :- weiblich(X), nichtgleich(X,Y), mutter(A,X), mutter(A,Y).
 
 % onkel(X,Y): X ist Onkel von Y.
 onkel(X,Y) :- elternteil(A,Y), bruder(X,A).
@@ -77,3 +79,6 @@ tante(X,Y) :- elternteil(A,Y), schwester(X,A).
 % cousine(X,Y): X ist Cousine von Y.
 cousine(X,Y) :- weiblich(X), onkel(A,Y), elternteil(A,X).
 cousine(X,Y) :- weiblich(X), tante(A,Y), elternteil(A,X).
+
+% großvater(X,Y): X ist Großvater von Y.
+großvater(X,Y) :- maennlich(X), elternteil(X,A), elternteil(A,Y).
