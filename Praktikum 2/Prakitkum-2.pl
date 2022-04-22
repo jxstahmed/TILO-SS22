@@ -58,17 +58,13 @@ sohn(X,Y) :- elternteil(Y,X), maennlich(X).
 tochter(X,Y) :- elternteil(Y,X), weiblich(X).
 
 % nichtgleich(X,Y): X ist nicht gleich Y [Nicht die selbe Person].
-nichtgleich(X,Y) :-  X \== Y.
+nichtgleich(X,Y) :-  X\==Y.
 
 % bruder(X,Y): X ist Bruder von Y [aber nicht die selbe Person].
-bruder(X,Y) :- maennlich(X), nichtgleich(X,Y), elternteil(A,X), elternteil(A,Y).
-% bruder(X,Y) :- maennlich(X), nichtgleich(X,Y), vater(A,X), vater(A,Y).
-% bruder(X,Y) :- maennlich(X), nichtgleich(X,Y), mutter(A,X), mutter(A,Y).
+bruder(X,Y) :- maennlich(X), vater(A,X), vater(A,Y), mutter(B,X), mutter(B,Y), nichtgleich(X,Y).
 
 % schwester(X,Y): X ist Schwester von Y [aber nicht die selbe Person].
-schwester(X,Y) :- maennlich(X), nichtgleich(X,Y), elternteil(A,X), elternteil(A,Y).
-% schwester(X,Y) :- weiblich(X), nichtgleich(X,Y), vater(A,X), vater(A,Y).
-% schwester(X,Y) :- weiblich(X), nichtgleich(X,Y), mutter(A,X), mutter(A,Y).
+schwester(X,Y) :- weiblich(X), vater(A,X), vater(A,Y), mutter(B,X), mutter(B,Y), nichtgleich(X,Y).
 
 % onkel(X,Y): X ist Onkel von Y.
 onkel(X,Y) :- elternteil(A,Y), bruder(X,A).
