@@ -2,7 +2,7 @@
 
 > **Was ist eine Relation? ->** Etwas steht in Beziehung zu etwas. elternteil() = X ist Elternteil von Y oder vater() = X ist Vater von Y.
 
-> **Was ist ein Fakt? ->** Man gibt etwas genau an. maennlich(ahmed) = Ahmed ist Männlich. Das ist ein Fakt weil jemand bestimmtes genau angegeben wird.
+> **Was ist ein Fakt? ->** Man gibt etwas genau an, maennlich(ahmed) = Ahmed ist Männlich. Das ist ein Fakt weil jemand bestimmtes genau angegeben wird.
 
 > **Wo durch unterscheidet sich vater() durch elternteil()? ->** elternteil() besteht ledeglich aus der linken Seite und ist definiert durch einen Fakt. vater() ist noch zusätzlich durch die rechte Regelseite definiert.
 
