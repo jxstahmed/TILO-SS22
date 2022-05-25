@@ -7,7 +7,7 @@ app(list(X,Xs),Ys,list(X,As)):- app(Xs,Ys,As).
 linListe(nil).
 linListe(list(X,Ys)) :- linListe(Ys), not(linListe(X)).
 
-% member2(X,Ys): Ys enthält das Element X
+% member2(X,Ys): Ys enthÃ¤lt das Element X
 member2(X,list(X,Xs)).
 member2(X,list(Y,Ys)). :- member2(X,Ys).
 
@@ -25,14 +25,14 @@ rev(list(X,Xs),Ys) :- rev(Xs,As), attach(As,X,Ys), linListe(Xs), linListe(Ys).
 
 % Aufgabe 2
 
-% binbaum(X) : X ist ein binärer Baum.
+% binbaum(X) : X ist ein binÃ¤rer Baum.
 binbaum(empty).
 binbaum(node(Eintrag,Lb,Rb)) :- binbaum(Lb), binbaum(Rb).
 
-% construct(Root,Lb,Rb,Xneub): Xneub ist der Baum mit der Wurzel Eintrag, linkem Teilbaum Lb und rechtem Teilbaum Rb.
-construct(Eintrag,Lb,Rb,node(Root,Lb,Rb)) :- binbaum(Lb), binbaum(Rb).
+% construct(Eintrag,Lb,Rb,Xneub): Xneub ist der Baum mit der Wurzel Eintrag, linkem Teilbaum Lb und rechtem Teilbaum Rb.
+construct(Eintrag,Lb,Rb,node(Eintrag,Lb,Rb)) :- binbaum(Lb), binbaum(Rb).
 
-% natSymb(X) :- X ist eine natürliche Zahl.
+% natSymb(X) :- X ist eine natÃ¼rliche Zahl.
 natSymb(o).
 natSymb(s(X)):- natSymb(X).
 
